@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.Views.LoginPage"
+             xmlns:models="clr-namespace:Notes.Models"
+             Title="LoginPage">
+    <ContentPage.BindingContext>
+        <models:Login/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label x:Name="userNo" 
+                   Text="登录名:" 
+                   HeightRequest="20"
+                   
+                   />
+            <Entry x:Name="entry" 
+                   Placeholder="Enter UserNo"
+                   HeightRequest="50"
+                   Text="{Binding userNo}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label x:Name="password" 
+                   Text="密码:" 
+                   HeightRequest="20"
+                   />
+            <Entry x:Name="entry2" 
+                   Placeholder="Enter Password"
+                   HeightRequest="50"
+                   Text="{Binding password}"/>
+        </HorizontalStackLayout>
+        <Button x:Name="LoginBtn" Clicked="LoginBtnClick" Text="登录"/>
+    </VerticalStackLayout>
+</ContentPage>
