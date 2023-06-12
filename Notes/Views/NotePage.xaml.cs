@@ -28,8 +28,8 @@ public partial class NotePage : ContentPage
     {
         if (BindingContext is Note note)
         {
-            if (File.Exists(_fileName))
-                File.Delete(_fileName);
+            if (File.Exists(note.Filename))
+                File.Delete(note.Filename);
         }
 
         await Shell.Current.GoToAsync("..");

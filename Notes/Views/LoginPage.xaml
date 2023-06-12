@@ -12,7 +12,6 @@
             <Label x:Name="userNo" 
                    Text="登录名:" 
                    HeightRequest="20"
-                   
                    />
             <Entry x:Name="entry" 
                    Placeholder="Enter UserNo"
