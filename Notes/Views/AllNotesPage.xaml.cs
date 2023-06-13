@@ -1,4 +1,5 @@
 using Notes.Models;
+using Notes.ServerRequest;
 
 namespace Notes.Views;
 
@@ -35,6 +36,11 @@ public partial class AllNotePage : ContentPage
 
     private async void Login_Clicked(object sender, EventArgs e)
     {
+        if (ServerUrls.token != "")
+        {
+            await Shell.Current.GoToAsync(nameof(UserInfoPage));
+            return;
+        }
         await Shell.Current.GoToAsync(nameof(LoginPage));
     }
 }

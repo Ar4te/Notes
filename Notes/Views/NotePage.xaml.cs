@@ -1,4 +1,5 @@
 using Notes.Models;
+using Notes.ServerRequest;
 
 namespace Notes.Views;
 
@@ -21,6 +22,11 @@ public partial class NotePage : ContentPage
     {
         if (BindingContext is Note note)
             File.WriteAllText(note.Filename, TextEditor.Text);
+
+        if (ServerUrls.token != "")
+        {
+
+        }
 
         await Shell.Current.GoToAsync("..");
     }

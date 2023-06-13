@@ -23,6 +23,7 @@ public partial class LoginPage : ContentPage
             {
                 if (res.success)
                 {
+                    ServerUrls.token = res.response;
                     await Toast.Make("µÇÂ½³É¹¦", ToastDuration.Short, 14).Show(new CancellationTokenRegistration().Token);
                     await Shell.Current.GoToAsync("..");
                 }
