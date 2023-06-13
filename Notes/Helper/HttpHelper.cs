@@ -8,40 +8,31 @@ public class HttpHelper
     {
         try
         {
-            string result = string.Empty;
-            Uri getUrl = new Uri(serviceAddress);
+            Uri getUrl = new(serviceAddress);
             using var httpClient = new HttpClient();
             httpClient.Timeout = new TimeSpan(0, 0, 60);
-            result = await httpClient.GetAsync(serviceAddress).Result.Content.ReadAsStringAsync();
-            return result;
+            return await httpClient.GetAsync(serviceAddress).Result.Content.ReadAsStringAsync();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.Message);
+            return e.Message;
         }
-        return null;
     }
 
     public static async Task<string> PostAsync(string serviceAddress, string requestJson = null)
     {
         try
         {
-            string result = string.Empty;
-            Uri postUrl = new Uri(serviceAddress);
-
-            using (HttpContent httpContent = new StringContent(requestJson))
-            {
-                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                using var httpClient = new HttpClient();
-                httpClient.Timeout = new TimeSpan(0, 0, 60);
-                result = await httpClient.PostAsync(serviceAddress, httpContent).Result.Content.ReadAsStringAsync();
-            }
-            return result;
+            Uri postUrl = new(serviceAddress);
+            using HttpContent httpContent = new StringContent(requestJson);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            using var httpClient = new HttpClient();
+            httpClient.Timeout = new TimeSpan(0, 0, 60);
+            return await httpClient.PostAsync(serviceAddress, httpContent).Result.Content.ReadAsStringAsync();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.Message);
+            return e.Message;
         }
-        return null;
     }
 }
