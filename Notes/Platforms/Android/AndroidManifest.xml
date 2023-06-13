@@ -6,8 +6,8 @@
 		android:roundIcon="@mipmap/appicon_round"
 		android:supportsRtl="true"
 		android:usesCleartextTraffic="true"
-		android:networkSecurityConfig="@/res/xml/network-security-config"
 		>
+		<!--android:networkSecurityConfig="@/res/xml/network-security-config"-->
 		<!--android:networkSecurityConfig="../res/xml/network-security-config.xml"-->
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
