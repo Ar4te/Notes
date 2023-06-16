@@ -7,9 +7,18 @@
 		android:supportsRtl="true"
 		android:usesCleartextTraffic="true"
 		>
-		<!--android:networkSecurityConfig="@/res/xml/network-security-config"-->
-		<!--android:networkSecurityConfig="../res/xml/network-security-config.xml"-->
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
+
+	<queries>
+		<intent>
+			<action android:name="android.intent.action.VIEW"/>
+			<data android:scheme="http" />
+		</intent>
+		<intent>
+			<action android:name="android.intent.action.VIEW" />
+			<data android:scheme="https" />
+		</intent>
+	</queries>
 </manifest>
